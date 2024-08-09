@@ -1,0 +1,45 @@
+<!-- HERENCIA DE BASE -->
+{% extends "core/base.html" %}
+
+<!-- CARGA LOS ESTATICOS -->
+{% load static %}
+
+<!-- TITULO DINAMICO -->
+{% block titulo %} INICIO {% endblock titulo %}
+
+<!-- ARCHIVOS ESTATICOS EXTRA -->
+{% block extra_css %}{% endblock extra_css %}
+
+
+<!-- CONTENIDO PRINCIPAL -->
+{% block contenido_principal %}
+    <article class="blog-post">
+      <div class="col-auto d-none d-lg-block">
+        <img src="{{ post.image.url }}" class="img-fluid" alt="{{ post.title }}">
+      </div>
+
+      <strong class="d-inline-block mb-2 mt-3 text-primary"><a href="{% url 'category' %}">{{ post.categoty }}</a></strong>
+      <h2 class="blog-post-title mb-1">{{ post.title }}</h2>
+      <p class="blog-post-meta">{{ post.created|date:"d M Y" }} por <a href="{% url 'author' %}">{{ post.author }}</a></p>
+
+      <p class="lead my-3">{{ post.lead }}</p>
+      <hr>
+      <p>{{ post.content }}</p>
+
+      <hr>
+
+      <strong>Etiquetas:</strong>
+      {% for tag in post.tags.all %}
+      <span class="badge text-bg-info">{{tag.name}}</span>
+      {% endfor %}
+
+
+    </article>
+
+    <div class="my-3">
+      <a class="btn btn-success rounded-pill" href="{% url 'inicio' %}">Volver al Inicio</a>
+    </div>
+{% endblock contenido_principal %}
+
+<!-- ARCHIVOS JS EXTRA -->
+{% block extra_js %}{% endblock extra_js %}
