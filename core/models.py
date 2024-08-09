@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -44,7 +45,8 @@ class Usuario(AbstractUser):
 class Post(models.Model):
     title = models.CharField(max_length=200, verbose_name='Titulo')
     lead = models.TextField(verbose_name='Entrada')
-    content = models.TextField(verbose_name='Contenido')
+    # content = models.TextField(verbose_name='Contenido')
+    content = RichTextField(verbose_name='Contenido')
     image = models.ImageField(upload_to='post', null=True, blank=True, verbose_name='Imagen')
     published = models.BooleanField(default=False, verbose_name='Publicado')
     #Campos con relaciones

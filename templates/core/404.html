@@ -1,0 +1,19 @@
+<!-- HERENCIA DE BASE -->
+{% extends "core/base.html" %}
+
+<!-- CARGA LOS ESTATICOS -->
+{% load static %}
+
+
+<!-- CONTENIDO PRINCIPAL -->
+{% block contenido_principal %}
+
+  <h1>Pagina no encontrada</h1>
+
+
+<div class="my-3">
+  <a class="btn btn-success rounded-pill" href="{% url 'inicio' %}">Volver al Inicio</a>
+</div>
+
+
+{% endblock contenido_principal %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from .models import Post
 
@@ -17,11 +17,16 @@ def home(request):
     return render(request, 'core/index.html', contexto)
 
 def post(request, post_id):
-    post = Post.objects.get(id=post_id)
-    contexto = {
-        'post' : post,
-    }
-    return render(request, 'core/post.html', contexto)
+    # post = Post.objects.get(id=post_id)
+    try:
+        post = get_object_or_404(Post, id=post_id)
+        contexto = {
+            'post' : post,
+        }
+        return render(request, 'core/post.html', contexto)
+    except:
+        return render(request, 'core/404.html')
+    
 
 def author(request):
     contexto = {}
