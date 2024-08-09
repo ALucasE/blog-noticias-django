@@ -31,17 +31,26 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
 
 # Application definition
-
-INSTALLED_APPS = [
+#Aqui las aplicaiones por defecto
+BASE_APP = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core',
+]
+#Aqui aplicaiones de terceros
+THIRD_APP = [
+    #Configuracion para django-ckeditor==6.5.1
     'ckeditor',
 ]
+#Aqui las aplicaciones propias (Ordenar alfabeticamente)
+OWN_APP = [
+    'core',
+]
+INSTALLED_APPS = BASE_APP + THIRD_APP + OWN_APP
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

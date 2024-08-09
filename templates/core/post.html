@@ -18,7 +18,7 @@
         <img src="{{ post.image.url }}" class="img-fluid" alt="{{ post.title }}">
       </div>
 
-      <strong class="d-inline-block mb-2 mt-3 text-primary"><a href="{% url 'category' %}">{{ post.categoty }}</a></strong>
+      <strong class="d-inline-block mb-2 mt-3 text-primary"><a href="{% url 'category' post.categoty.id %}">{{ post.categoty }}</a></strong>
       <h2 class="blog-post-title mb-1">{{ post.title }}</h2>
       <p class="blog-post-meta">{{ post.created|date:"d M Y" }} por <a href="{% url 'author' %}">{{ post.author }}</a></p>
 

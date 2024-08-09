@@ -50,7 +50,7 @@ class Post(models.Model):
     image = models.ImageField(upload_to='post', null=True, blank=True, verbose_name='Imagen')
     published = models.BooleanField(default=False, verbose_name='Publicado')
     #Campos con relaciones
-    categoty = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Categoria')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='get_posts', verbose_name='Categoria')
     author = models.ForeignKey(Usuario, on_delete=models.CASCADE, verbose_name='Autor')
     tags = models.ManyToManyField(Tag, verbose_name='Etiqueta')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creación')
