@@ -9,7 +9,6 @@ def home(request):
     page = request.GET.get('page')
     posts = posts_page.get_page(page)
     numbers_page = 'p' * posts.paginator.num_pages
-    print(posts)
     contexto = {
         'posts': posts,
         'pages': numbers_page
