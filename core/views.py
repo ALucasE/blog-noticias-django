@@ -5,7 +5,16 @@ from .models import Post, Category, Usuario
 # Create your views here.
 
 def home(request):
-    posts_page = Paginator(Post.objects.filter(published=True), 2)
+
+    if not request.session.get('items_per_page'):
+        request.session['items_per_page'] = 2
+    
+    if request.method == 'GET' and 'items_per_page' in request.GET:
+        request.session['items_per_page'] = int(request.GET['items_per_page'])
+    
+    items_per_page = request.session['items_per_page']
+
+    posts_page = Paginator(Post.objects.filter(published=True), items_per_page)
     page = request.GET.get('page')
     posts = posts_page.get_page(page)
     numbers_page = 'p' * posts.paginator.num_pages
