@@ -4,23 +4,12 @@
 <!-- CARGA LOS ESTATICOS -->
 {% load static %}
 
+<!-- TITULO DINAMICO -->
+{% block titulo %} Bienvenido {% endblock titulo %}
 
 <!-- CONTENIDO PRINCIPAL -->
 {% block contenido_principal %}
 
-{% if request.path == '/author/' %}
-<div class="alert alert-success" role="alert">
-  Todos los Posts del autor: <strong>AUTOR</strong>
-</div>
-{% elif request.path == '/dates/' %}
-<div class="alert alert-success" role="alert">
-  Todos los Posts publicados en: <strong>MES Y AÑO</strong>
-</div>
-{% elif request.path == '/category/' %}
-<div class="alert alert-success" role="alert">
-  Todos los Posts con la categoría: <strong>CATEGORIA</strong>
-</div>
-{% endif %}
 
 {% for post in posts %}
 {% if forloop.first and posts.number == 1 %}

@@ -16,13 +16,13 @@ Including another URLconf
 """
 
 from django.urls import path
-from .views import home, author, get_category, dates, get_post
+from .views import home, get_post_author, get_post_category, get_post_dates, get_post
 
 
 urlpatterns = [
     path('', home, name='inicio'),
-    path('author/', author, name='author'),
-    path('category/<int:category_id>', get_category, name='category'),
-    path('dates/', dates, name='dates'),
+    path('author/<int:author_id>', get_post_author, name='author'),
+    path('category/<int:category_id>', get_post_category, name='category'),
+    path('dates/<int:month_id>/<int:year_id>', get_post_dates, name='dates'),
     path('post/<int:post_id>', get_post, name='post'),
 ]

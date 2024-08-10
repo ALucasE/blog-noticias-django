@@ -51,7 +51,7 @@ class Post(models.Model):
     published = models.BooleanField(default=False, verbose_name='Publicado')
     #Campos con relaciones
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='get_posts', verbose_name='Categoria')
-    author = models.ForeignKey(Usuario, on_delete=models.CASCADE, verbose_name='Autor')
+    author = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='get_posts', verbose_name='Autor')
     tags = models.ManyToManyField(Tag, verbose_name='Etiqueta')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creación')
     updated = models.DateTimeField(auto_now=True, verbose_name='Fecha de modificación')

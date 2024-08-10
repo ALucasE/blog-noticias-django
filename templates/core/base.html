@@ -5,8 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="">
-    <meta name="Lucas Acosta" content="Código para Principiantes">
+    <!-- Etiquetas META -->
+    <!-- Indica la descripción de la página que aparece en buscadores. -->
+    <meta name="description" content="Es una aplicacion web de noticias de juegos y todo lo relacionado al gaming">
+    <!-- Lista de palabras clave separadas por comas. Google no la tiene en cuenta. -->
+    <meta name="keywords" content="blog noticias gaming">
+    <!-- Indica el nombre del autor de la página. -->
+    <meta name="author" content="Lucas Acosta">
+    <!-- Indica el nombre de la aplicación web. Debería usarse sólo si es una webapp. -->
+    <meta name="application-name" content="Blog GameConnect Amix">
+    <!-- El navegador coloreará la barra de direcciones con el color hexadecimal -->
+    <meta name="theme-color" content="#2C5781">
     <!-- TITULO DINAMICO -->
     <title>{% block titulo %} {% endblock titulo %} - GameConnect Amix</title>
     <!-- CARGA LOS ESTATICOS -->
@@ -53,18 +62,11 @@
                     <div class="p-4">
                         <h4 class="fst-italic">Archivos</h4>
                         <ol class="list-unstyled mb-0">
-                        <li><a href="{% url 'dates' %}">March 2021</a></li>
-                        <li><a href="{% url 'dates' %}">February 2021</a></li>
-                        <li><a href="{% url 'dates' %}">January 2021</a></li>
-                        <li><a href="{% url 'dates' %}">December 2020</a></li>
-                        <li><a href="{% url 'dates' %}">November 2020</a></li>
-                        <li><a href="{% url 'dates' %}">October 2020</a></li>
-                        <li><a href="{% url 'dates' %}">September 2020</a></li>
-                        <li><a href="{% url 'dates' %}">August 2020</a></li>
-                        <li><a href="{% url 'dates' %}">July 2020</a></li>
-                        <li><a href="{% url 'dates' %}">June 2020</a></li>
-                        <li><a href="{% url 'dates' %}">May 2020</a></li>
-                        <li><a href="{% url 'dates' %}">April 2020</a></li>
+                            {% for date in dates %}
+                            <li><a href="{% url 'dates' date.month date.year %}">{{ date|date:"Y M" }}</a></li>
+                            {% empty %} 
+                            <li><a>No existen archivos</a></li>
+                            {% endfor %}
                         </ol>
                     </div>
                     <div class="p-4">

@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
-from .models import Post, Category
+from .models import Post, Category, Usuario
 
 # Create your views here.
 
@@ -27,12 +27,17 @@ def get_post(request, post_id):
         return render(request, 'core/404.html')
 
 
-def author(request):
-    contexto = {}
-    
-    return render(request, 'core/index.html', contexto)
+def get_post_author(request, author_id):
+    try:
+        author = get_object_or_404(Usuario, id=author_id)
+        contexto = {
+            'author':author,
+        }
+        return render(request, 'core/author.html', contexto)
+    except Exception:
+        return render(request, 'core/404.html')
 
-def get_category(request, category_id):
+def get_post_category(request, category_id):
     try:
         category = get_object_or_404(Category, id=category_id)
         contexto = {
@@ -43,7 +48,9 @@ def get_category(request, category_id):
         return render(request, 'core/404.html')
     
 
-def dates(request):
-    contexto = {}
-    
-    return render(request, 'core/index.html', contexto)
+def get_post_dates(request, month_id, year_id):
+    posts = Post.objects.filter(published=True, created__month=month_id, created__year=year_id)
+    contexto = {
+        'posts' : posts
+    }
+    return render(request, 'core/date.html', contexto)

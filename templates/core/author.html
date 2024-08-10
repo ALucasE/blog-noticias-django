@@ -3,16 +3,17 @@
 
 <!-- CARGA LOS ESTATICOS -->
 {% load static %}
+
 <!-- TITULO DINAMICO -->
-{% block titulo %} Publicaciones de la categoria: {{ category }} {% endblock titulo %}
+{% block titulo %} Publucaciones por {{ author.username }} {% endblock titulo %}
 
 <!-- CONTENIDO PRINCIPAL -->
 {% block contenido_principal %}
 <div class="alert alert-success" role="alert">
-    Todos los Posts con la categoría: <strong>{{ category }}</strong>
+    Todos los Posts del autor: <strong>{{ author.username }}</strong>
 </div>
 
-  {% for post in category.get_posts.all %}
+  {% for post in author.get_posts.all %}
     <!-- TODOS LOS POST MENOS EL PRIMERO -->
     <div class="card mb-3">
       <div class="row g-0">
@@ -33,7 +34,7 @@
 
   {% empty %}
     <div class="alert alert-danger" role="alert">
-    Aun no hay posts en la categoria <strong>{{ category }}</strong>
+    Aun no hay posts del autor: <strong>{{ author.username }}</strong>
     </div>
   {% endfor %}
 

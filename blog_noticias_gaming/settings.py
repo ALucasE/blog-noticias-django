@@ -78,6 +78,7 @@ TEMPLATES = [
                 'core.processor.ctx_dic_link',
                 'core.processor.ctx_dic_about',
                 'core.processor.ctx_dic_category',
+                'core.processor.ctx_dic_history',                
                 
             ],
         },

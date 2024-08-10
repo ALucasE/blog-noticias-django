@@ -8,12 +8,14 @@
 
 <!-- CONTENIDO PRINCIPAL -->
 {% block contenido_principal %}
+{% if posts.count %}
 <div class="alert alert-success" role="alert">
-    Todos los Posts con la categoría: <strong>{{ category }}</strong>
+    Todos los Posts publicados en: <strong>{{ posts.0.created|date:"M Y" }}</strong>
 </div>
+{% endif %}
 
-  {% for post in category.get_posts.all %}
-    <!-- TODOS LOS POST MENOS EL PRIMERO -->
+  {% for post in posts %}
+    <!-- TODOS LOS POST -->
     <div class="card mb-3">
       <div class="row g-0">
           <div class="col-md-7">
@@ -33,7 +35,7 @@
 
   {% empty %}
     <div class="alert alert-danger" role="alert">
-    Aun no hay posts en la categoria <strong>{{ category }}</strong>
+    <strong>No hay posts en la fecha ingresada</strong>
     </div>
   {% endfor %}
 
