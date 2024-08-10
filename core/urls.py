@@ -16,7 +16,7 @@ Including another URLconf
 """
 
 from django.urls import path
-from .views import home, get_post_author, get_post_category, get_post_dates, get_post
+from .views import home, get_post_author, get_post_category, get_post_dates, get_post, like_post
 
 
 urlpatterns = [
@@ -25,4 +25,6 @@ urlpatterns = [
     path('category/<int:category_id>', get_post_category, name='category'),
     path('dates/<int:month_id>/<int:year_id>', get_post_dates, name='dates'),
     path('post/<int:post_id>', get_post, name='post'),
+    path('like/<int:pk>', like_post, name='like_post'),
+
 ]

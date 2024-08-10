@@ -20,7 +20,6 @@ def ctx_dic_category(request):
 def ctx_dic_history(request):
     ctx_history = {}
     ctx_history['dates']= Post.objects.dates('created', 'month', order='DESC').distinct()
-    print(ctx_history)
     return ctx_history
 
 

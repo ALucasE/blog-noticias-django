@@ -32,7 +32,14 @@
       {% for tag in post.tags.all %}
       <span class="badge text-bg-info">{{tag.name|upper}}</span>
       {% endfor %}
-
+      {% if is_autenticated %}
+        <form action="{% url 'like_post' post.pk %}" method="post" class="mt-5">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-primary" name="post_id" value="{{ post.id }}">
+            Me gusta <span class="badge text-bg-secondary ms-2"> {{ total_likes }}</span>
+          </button>
+        </form>
+      {% endif %}
 
     </article>
 

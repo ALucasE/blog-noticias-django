@@ -53,8 +53,12 @@ class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='get_posts', verbose_name='Categoria')
     author = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='get_posts', verbose_name='Autor')
     tags = models.ManyToManyField(Tag, verbose_name='Etiqueta')
+    likes = models.ManyToManyField(Usuario, related_name='blog_posts', verbose_name='Me gusta')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creación')
     updated = models.DateTimeField(auto_now=True, verbose_name='Fecha de modificación')
+
+    def total_likes(self):
+        return self.likes.count()
 
     class Meta:
         verbose_name = 'Publicacion'

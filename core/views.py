@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from .models import Post, Category, Usuario
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 # Create your views here.
 
@@ -28,8 +30,10 @@ def home(request):
 def get_post(request, post_id):
     try:
         post = get_object_or_404(Post, id=post_id)
+        total_likes = post.total_likes()
         contexto = {
-            'post' : post
+            'post' : post,
+            'total_likes' : total_likes
         }
         return render(request, 'core/post.html', contexto)
     except Exception:
@@ -63,3 +67,9 @@ def get_post_dates(request, month_id, year_id):
         'posts' : posts
     }
     return render(request, 'core/date.html', contexto)
+
+def like_post(request, pk):
+    post = get_object_or_404(Post, id=request.POST.get('post_id'))
+    post.likes.add(request.user)
+    
+    return HttpResponseRedirect(reverse('post', args=[str(pk)]))
