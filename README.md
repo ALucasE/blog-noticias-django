@@ -23,7 +23,7 @@ En GameConnect, te mantenemos al día con las últimas novedades del mundo del g
 ## Capturas
 ![Inicio 01](https://github.com/ALucasE/blog-noticias-django/blob/main/capturas/Captura%20de%20pantalla_11-8-2024_22322_127.0.0.1.jpeg?raw=true)
 
-![Inicio 02](]https://github.com/ALucasE/blog-noticias-django/blob/main/capturas/Captura%20de%20pantalla_11-8-2024_22333_127.0.0.1.jpeg?raw=true)
+![Inicio 02](https://github.com/ALucasE/blog-noticias-django/blob/main/capturas/Captura%20de%20pantalla_11-8-2024_22333_127.0.0.1.jpeg?raw=true)
 
 ![Categorias 01](https://github.com/ALucasE/blog-noticias-django/blob/main/capturas/Captura%20de%20pantalla_11-8-2024_22346_127.0.0.1.jpeg?raw=true)
 
