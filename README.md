@@ -20,6 +20,22 @@ En GameConnect, te mantenemos al día con las últimas novedades del mundo del g
 - Tecnología y Equipamiento: Conoce las últimas innovaciones en hardware y software para gaming.
 - Comunidades y Foros: Conéctate con otros jugadores, comparte tus experiencias y encuentra nuevos amigos para jugar.
 
+## Capturas
+![Inicio 01](https://github.com/ALucasE/blog-noticias-django/blob/main/capturas/Captura%20de%20pantalla_11-8-2024_22322_127.0.0.1.jpeg?raw=true)
+
+![Inicio 02](]https://github.com/ALucasE/blog-noticias-django/blob/main/capturas/Captura%20de%20pantalla_11-8-2024_22333_127.0.0.1.jpeg?raw=true)
+
+![Categorias 01](https://github.com/ALucasE/blog-noticias-django/blob/main/capturas/Captura%20de%20pantalla_11-8-2024_22346_127.0.0.1.jpeg?raw=true)
+
+![Categorias 02](https://github.com/ALucasE/blog-noticias-django/blob/main/capturas/Captura%20de%20pantalla_11-8-2024_22354_127.0.0.1.jpeg?raw=true)
+
+![Publicacion](https://github.com/ALucasE/blog-noticias-django/blob/main/capturas/Captura%20de%20pantalla_11-8-2024_22427_127.0.0.1.jpeg?raw=true)
+
+![Filtro Archivos](https://github.com/ALucasE/blog-noticias-django/blob/main/capturas/Captura%20de%20pantalla_11-8-2024_22649_127.0.0.1.jpeg?raw=true)
+
+![Administracion](https://github.com/ALucasE/blog-noticias-django/blob/main/capturas/Captura%20de%20pantalla_11-8-2024_22532_127.0.0.1.jpeg?raw=true)
+
+
 
 
 ## Installation
